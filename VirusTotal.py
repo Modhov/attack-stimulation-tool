@@ -1,9 +1,13 @@
 import requests
 import json
+import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv('data.env')
 
 # Replace 'your_api_key' with your actual VirusTotal API key
-API_KEY = 'f9a1a4ad8c1363a520d7e1bd9b0858751cf1e735d74c149dea13b03378a8dd59'
+API_KEY = os.getenv("VIRUS_TOTAL_API_KEY")
 BASE_URL = 'https://www.virustotal.com/api/v3'
 
 def get_ip_report(ip_address):
