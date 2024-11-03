@@ -1,16 +1,20 @@
-# This is a sample Python script.
+# main.py
+import sys
+from PySide6.QtWidgets import QApplication
+from PySide6.QtQml import QQmlApplicationEngine
 
-# Press ⌃F5 to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def main():
+    app = QApplication(sys.argv)
+    engine = QQmlApplicationEngine()
 
+    # Load the main QML file
+    engine.load("qml/MainPage.qml")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
+    # Check if the QML file loaded successfully
+    if not engine.rootObjects():
+        sys.exit(-1)
 
+    sys.exit(app.exec())
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
