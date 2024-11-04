@@ -20,5 +20,6 @@ def scan_network(ip_range):
                 print(f"Port: {port}\tState: {port_info['state']}\tService: {port_info.get('name', 'Unknown')}\tVersion: {port_info.get('version', 'N/A')}")
     return hosts_list
 # Example usage
-ip_range = "127.0.0.1"  # Replace with the desired IP range
-scan_results = scan_network(ip_range)
+if __name__ == "__main__":
+    ip_range = "127.0.0.1"  # Replace with the desired IP range
+    scan_results = scan_network(ip_range)

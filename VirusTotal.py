@@ -90,10 +90,11 @@ def format_report(report):
     
     return formatted_report
 
-# Example IP address to scan (replace with the IP address you want to check)
-ip_address = "127.0.0.1"
-report = get_ip_report(ip_address)
+if __name__ == "__main__":
+    # Example IP address to scan (replace with the IP address you want to check)
+    ip_address = "127.0.0.1"
+    report = get_ip_report(ip_address)
 
-# Format and print the structured report
-formatted_report = format_report(report)
-print(formatted_report)
+    # Format and print the structured report
+    formatted_report = format_report(report)
+    print(formatted_report)
