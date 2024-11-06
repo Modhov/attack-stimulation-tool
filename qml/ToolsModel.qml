@@ -11,7 +11,6 @@ ListModel {
     }
     ListElement {
         toolName: "Connect"
-        functions: '[{"functionName": "Brute Force", "inputs": [{"placeholder": "Target URL"}, {"placeholder": "Password List"}]}, \
-                     {"functionName": "SQL Injection Test", "inputs": [{"placeholder": "Target URL"}]}]'
+        functions: '[]'
     }
 }

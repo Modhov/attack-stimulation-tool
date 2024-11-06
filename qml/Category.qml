@@ -32,10 +32,10 @@ Rectangle {
         padding: 4
         anchors.fill: parent
         spacing: 8
-        ToolNavigator {
-            toolName: categoryName
-            onNavigateBack: stackView.pop()
-        }
+        // ToolNavigator {
+        //     toolName: categoryName
+        //     onNavigateBack: stackView.pop()
+        // }
 
         Row {
             width: parent.width
@@ -48,11 +48,30 @@ Rectangle {
                 color: "#ffffff"
 
                 ListView {
+                    spacing: 8
                     anchors.fill: parent
                     model: selectedFunctionData
 
                     delegate: Button {
                         text: modelData.functionName
+                        width: 150
+                        height: 40
+
+                        background: Rectangle {
+                            implicitWidth: 100
+                            implicitHeight: 40
+                            color: parent.hovered ? "#eee" : "#fff"
+                        }
+
+                        contentItem: Text {
+                            text: modelData.functionName
+                            color: "#000"
+                            font.pixelSize: 15
+                            font.family: "Arial"
+                            font.weight: Font.Thin
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                         onClicked: {
                             selectedFunction = modelData.functionName
                             inputFields = modelData.inputs
@@ -94,7 +113,7 @@ Rectangle {
 
                     Button {
                         text: "Run " + selectedFunction
-                        enabled: selectedFunction !== "" // Enable only if a function is selected
+                        visible: selectedFunction !== "" // Enable only if a function is selected
                         onClicked: {
                             function getAllFuncs(obj) {
                                 let methods = new Set()
@@ -130,10 +149,13 @@ Rectangle {
 
                         TextArea {
                             id: outputArea
+                            padding: 8
                             background: Rectangle {
                                 color: "black"
+                                radius: 4
                             }
                             readOnly: true
+                            font.family: "monospace"
                             text: "Output will be displayed here."
                             wrapMode: TextEdit.Wrap // Allows text wrapping in the output area
                         }

@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: "My App"
+    title: "NetScan"
 
     // StackView to handle page navigation
     StackView {
@@ -30,7 +30,7 @@ ApplicationWindow {
 
                 // App title
                 Text {
-                    text: "My App Name"
+                    text: "NetScan"
                     font.pointSize: 24
                     horizontalAlignment: Text.AlignHCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -42,16 +42,32 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     Button {
-                        text: "Recon"
+                        text: "Start Scanning"
+                        width: 200
+                        height: 40
+
+
+                        // Button styling to avoid continuous updates
+                        background: Rectangle {
+                            implicitWidth: 200
+                            implicitHeight: 40
+                            color: parent.hovered ? "#111" : "#000"
+                            border.color: "black"
+                            radius: 5
+                        }
+
+                        contentItem: Text {
+                            text: "Start Scanning >"
+                            color: "#fff"
+                            font.pixelSize: 15
+                            font.family: "monospace"
+                            font.weight: Font.Thin
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
                         onClicked: stackView.push(Qt.resolvedUrl("Category.qml"), {
                             categoryName: "Recon"
-                        })
-                    }
-
-                    Button {
-                        text: "Connect"
-                        onClicked: stackView.push(Qt.resolvedUrl("Category.qml"), {
-                            categoryName: "Connect"
                         })
                     }
                 }
